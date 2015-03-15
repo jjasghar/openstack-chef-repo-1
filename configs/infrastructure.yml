@@ -1,0 +1,110 @@
+berksfile:
+    options: '--no-freeze --halt-on-frozen'
+
+cookbooks:
+
+roles:
+- allinone-compute:
+- os-bare-metal:
+- os-bare-metal-api:
+- os-bare-metal-conductor:
+- os-base:
+- os-block-storage:
+- os-block-storage-api:
+- os-block-storage-scheduler:
+- os-block-storage-volume:
+- os-client:
+- os-compute-api:
+- os-compute-api-ec2:
+- os-compute-api-metadata:
+- os-compute-api-os-compute:
+- os-compute-cert:
+- os-compute-conductor:
+- os-compute-scheduler:
+- os-compute-setup:
+- os-compute-single-controller:
+- os-compute-single-controller-no-network:
+- os-compute-vncproxy:
+- os-compute-worker:
+- os-dashboard:
+- os-identity:
+- os-image:
+- os-image-api:
+- os-image-registry:
+- os-image-upload:
+- os-network:
+- os-network-dhcp-agent:
+- os-network-l3-agent:
+- os-network-metadata-agent:
+- os-network-openvswitch:
+- os-network-server:
+- os-object-storage-account:
+- os-object-storage-container:
+- os-object-storage-management:
+- os-object-storage-object:
+- os-object-storage-proxy:
+- os-object-storage-setup:
+- os-ops-caching:
+- os-ops-database:
+- os-ops-messaging:
+- os-orchestration:
+- os-orchestration-api:
+- os-orchestration-api-cfn:
+- os-orchestration-api-cloudwatch:
+- os-orchestration-engine:
+- os-telemetry:
+- os-telemetry-agent-central:
+- os-telemetry-agent-compute:
+- os-telemetry-agent-notification:
+- os-telemetry-alarm-evaluator:
+- os-telemetry-alarm-notifier:
+- os-telemetry-api:
+- os-telemetry-collector:
+
+environments:
+- allinone:
+
+data bags:
+- user_passwords:
+    items:
+      - admin
+      - guest
+      - mysqlroot
+- db_passwords:
+    items:
+      - nova
+      - horizon
+      - keystone
+      - glance
+      - ceilometer
+      - neutron
+      - cinder
+      - heat
+      - dash
+      - ironic
+- service_passwords:
+    items:
+      - openstack-image
+      - openstack-compute
+      - openstack-block-storage
+      - openstack-orchestration
+      - openstack-network
+      - rbd
+      - openstack-object-storage
+      - openstack-bare-metal
+      - openstack-ceilometer
+- secrets:
+    items:
+      - openstack_identity_bootstrap_token
+      - neutron_metadata_secret 
+      - swift_hash_path_prefix
+      - dispersion_auth_key
+      - swift_authkey
+      - dispersion_auth_user
+      - swift_hash_path_suffix
+      - openstack_metering_secret
+
+nodes:
+- harumaki.flg.jp:
+    run_list: role[allinone-compute]
+    options: -N opstall -E allinone --sudo -x andesm --use-sudo-password -P openstack
