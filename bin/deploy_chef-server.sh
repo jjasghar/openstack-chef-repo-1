@@ -42,11 +42,11 @@ cp .chef/encrypted_data_bag_secret ~/.chef/encrypted_data_bag_secret
 rm -rf .chef
 cd environments
 ln -s ~/configs/allinone.json .
-cd ../roles
-mv os-compute-single-controller.json os-compute-single-controller.json.bak
-ln -s ~/configs/os-compute-single-controller.json .
-mv os-compute-worker.json os-compute-worker.json.bak
-ln -s ~/configs/os-compute-worker.json
+#cd ../roles
+#mv os-compute-single-controller.json os-compute-single-controller.json.bak
+#ln -s ~/configs/os-compute-single-controller.json .
+#mv os-compute-worker.json os-compute-worker.json.bak
+#ln -s ~/configs/os-compute-worker.json
 cd ~/
 mkdir -p ~/.berkshelf/
 cp ~/configs/config.json ~/.berkshelf/

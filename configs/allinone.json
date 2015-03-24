@@ -38,7 +38,10 @@
       "compute": {
         "network": {
           "service_type": "neutron"
-        }
+        },
+        "scheduler": {
+          "default_filters": ["AvailabilityZoneFilter", "RamFilter", "ComputeFilter", "ComputeCapabilitiesFilter", "ImagePropertiesFilter", "ServerGroupAntiAffinityFilter", "ServerGroupAffinityFilter"]
+         } 
       },
       "network": {
         "debug": "True",
