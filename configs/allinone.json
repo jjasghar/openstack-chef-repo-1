@@ -37,6 +37,8 @@
         "user": "admin"
       },
       "compute": {
+        "debug": "True",
+        "verbose": "True",
         "network": {
           "service_type": "neutron"
         },
@@ -49,11 +51,13 @@
         "verbose": "True",
         "allow_overlapping_ips": "True",
         "service_plugins": ["neutron.services.l3_router.l3_router_plugin.L3RouterPlugin"],
-        "misc_neutron": ["[ovs]", "local_ip = 192.168.1.2", "", "[agent]", "tunnel_types = vxlan"],
+        "misc_neutron": ["[ovs]", "local_ip = 192.168.1.2", "bridge_mappings = pppoe:br-pppoe,external:br-ex", "tunnel_type = vxlan", "enable_tunneling = True", "", "[agent]", "tunnel_types = vxlan", "", "[securitygroup]", "firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver", "enable_security_group = True"],
         "ml2": {
+          "type_drivers": "flat,vxlan",
           "tenant_network_types": "vxlan",
           "mechanism_drivers": "openvswitch",
-          "vni_ranges": "1001:2000"
+          "vni_ranges": "1001:2000",
+          "flat_networks": "pppoe,external"
         },
         "dhcp": {
           "enable_isolated_metadata": "True"
