@@ -1,4 +1,7 @@
 #!/bin/sh -x
+sudo apt-get -y update
+sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove
 sudo cp ~/configs/interfaces_openstack-allinone /etc/network/interfaces
 sudo cp ~/configs/hostname_openstack-allinone /etc/hostname
 sudo cp ~/configs/hosts_openstack-allinone /etc/hosts
