@@ -4,5 +4,7 @@ sudo cp ~/configs/hostname_openstack-allinone /etc/hostname
 sudo cp ~/configs/hosts_openstack-allinone /etc/hosts
 sudo cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 sudo mkdir -p /etc/neutron/services/neutron-fwaas/
+sudo pvcreate /dev/sdb
+sudo vgcreate cinder-volumes /dev/sdb
 sudo apt-get -y install openssh-server
 sudo reboot
