@@ -2,7 +2,7 @@
 neutron net-create pppoe --router:external True --provider:physical_network pppoe --provider:network_type flat
 neutron subnet-create pppoe --name pppoe-subnet --allocation-pool start=219.117.195.35,end=219.117.195.35 --disable-dhcp 219.117.195.35/24
 #
-neutron net-create ext-net --router:external True --provider:physical_network external --provider:network_type flat
+neutron net-create ext-net --router:external True --provider:physical_network external --disable-dhcp --provider:network_type flat
 neutron subnet-create ext-net --name ext-subnet --allocation-pool start=192.168.1.40,end=192.168.1.40 --allocation-pool start=192.168.1.50,end=192.168.1.80 --disable-dhcp --gateway 192.168.1.13 192.168.1.0/24
 neutron port-create ext-net --fixed-ip ip_address=192.168.1.40
 neutron router-create flg-router
