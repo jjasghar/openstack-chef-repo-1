@@ -10,5 +10,6 @@ sudo mkdir -p /etc/neutron/services/neutron-fwaas/
 sudo pvcreate /dev/sdb
 sudo vgcreate cinder-volumes /dev/sdb
 sudo apt-get -y install openssh-server openvswitch-switch
+sudo ovs-vsctl add-br br-pppoe
 sudo ovs-vsctl add-port br-pppoe eth2
 sudo reboot
