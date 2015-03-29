@@ -45,7 +45,7 @@ ln -s ~/configs/allinone.json .
 cd ../roles
 mv os-compute-single-controller.json os-compute-single-controller.json.bak
 ln -s ~/configs/os-compute-single-controller.json .
-ln -s ~/configs/os-object-storage.json
+#ln -s ~/configs/os-object-storage.json
 cd ~/
 mkdir -p ~/.berkshelf/
 cp ~/configs/config.json ~/.berkshelf/
