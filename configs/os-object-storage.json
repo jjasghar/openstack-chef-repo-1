@@ -1,0 +1,20 @@
+{
+  "name": "os-object-storage",
+  "description": "Roll-up role for Swift.",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "role[os-object-storage-setup.json]",
+    "role[os-object-storage-account.json]",
+    "role[os-object-storage-container.json]",
+    "role[os-object-storage-management.json]",
+    "role[os-object-storage-object.json]",
+    "role[os-object-storage-proxy.json]"
+  ],
+  "env_run_lists": {
+  }
+}
