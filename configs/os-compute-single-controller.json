@@ -25,7 +25,8 @@
     "role[os-bare-metal-api]",
     "role[os-dashboard]",
     "role[os-orchestration]",
-    "role[os-telemetry]"
+    "role[os-telemetry]",
+    "role[os-object-storage]"
 
   ],
   "env_run_lists": {
