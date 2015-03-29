@@ -8,12 +8,12 @@
   },
   "chef_type": "role",
   "run_list": [
-    "role[os-object-storage-setup.json]",
-    "role[os-object-storage-account.json]",
-    "role[os-object-storage-container.json]",
-    "role[os-object-storage-management.json]",
-    "role[os-object-storage-object.json]",
-    "role[os-object-storage-proxy.json]"
+    "role[os-object-storage-setup]",
+    "role[os-object-storage-account]",
+    "role[os-object-storage-container]",
+    "role[os-object-storage-management]",
+    "role[os-object-storage-object]",
+    "role[os-object-storage-proxy]"
   ],
   "env_run_lists": {
   }
