@@ -38,6 +38,7 @@ roles:
 - os-network-metadata-agent:
 - os-network-openvswitch:
 - os-network-server:
+- os-object-storage:
 - os-object-storage-account:
 - os-object-storage-container:
 - os-object-storage-management:

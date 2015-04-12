@@ -1,27 +1,28 @@
 {
   "name": "allinone",
   "chef_type": "environment",
+  "ipaddress": "192.168.1.2",
   "override_attributes": {
-     "rabbitmq": {
-       "version": "3.4.3-1",
-       "default_user": "flg-cloud",
-       "default_pass": "flg-cloud",
-       "enabled_users": [ {
-         "name": "flg-cloud",
-         "password": "flg-cloud",
-         "rights": {
-           "vhost": "",
-           "conf": ".*",
-           "write": ".*",
-           "read": ".*"
-         } 
-       } ]
-     },
-     "mysql": {
-       "allow_remote_root": true,
-       "root_network_acl": ["192.168.1.0/24"]	
-     },
-     "openstack": {
+    "rabbitmq": {
+      "version": "3.4.3-1",
+      "default_user": "flg-cloud",
+      "default_pass": "flg-cloud",
+      "enabled_users": [ {
+        "name": "flg-cloud",
+        "password": "flg-cloud",
+        "rights": {
+          "vhost": "",
+          "conf": ".*",
+          "write": ".*",
+          "read": ".*"
+        } 
+      } ]
+    },
+    "mysql": {
+      "allow_remote_root": true,
+      "root_network_acl": ["192.168.1.0/24"]	
+    },
+    "openstack": {
       "endpoints": {
         "host": "192.168.1.2",
         "bind-host": "192.168.1.2",
@@ -36,20 +37,30 @@
         "user": "admin"
       },
       "compute": {
+        "debug": "True",
+        "verbose": "True",
         "network": {
           "service_type": "neutron"
-        }
+        },
+        "scheduler": {
+          "default_filters": ["AvailabilityZoneFilter", "RamFilter", "ComputeFilter", "ComputeCapabilitiesFilter", "ImagePropertiesFilter", "ServerGroupAntiAffinityFilter", "ServerGroupAffinityFilter"]
+        } 
       },
       "network": {
         "debug": "True",
         "verbose": "True",
         "allow_overlapping_ips": "True",
         "service_plugins": ["neutron.services.l3_router.l3_router_plugin.L3RouterPlugin"],
-        "misc_neutron": ["[ovs]", "local_ip = 192.168.1.2", "", "[agent]", "tunnel_types = vxlan"],
+        "misc_neutron": ["[ovs]", "local_ip = 192.168.1.2", "bridge_mappings = pppoe:br-pppoe,external:br-ex", "tunnel_type = vxlan", "enable_tunneling = True", "", "[agent]", "tunnel_types = vxlan", "", "[securitygroup]", "firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver", "enable_security_group = True"],
         "ml2": {
+          "type_drivers": "flat,vxlan",
           "tenant_network_types": "vxlan",
           "mechanism_drivers": "openvswitch",
-          "vni_ranges": "1001:2000"
+          "vni_ranges": "1001:2000",
+          "flat_networks": "pppoe,external"
+        },
+        "dhcp": {
+          "enable_isolated_metadata": "True"
         },
         "l3": {
           "gateway_external_network_name": "external"
@@ -58,11 +69,16 @@
           "nova_metadata_ip": "192.168.1.2"
         }
       },
-      "bare-metal": {
-        "user": "andesm",
-        "group": "andesm"
+      "block-storage": {
+        "debug": "True",
+        "verbose": "True",
+        "volume": {
+          "create_volume_group": "true",
+          "default_volume_type": "lvm"
+        }
       }
-    }
+    } 
   }
 }
+
 
