@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 cd ~/
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
@@ -8,7 +8,7 @@ sudo gem install bundler rubygems-update rake chef knife-backup
 sudo update_rubygems
 sudo gem update
 cd ~/deb
-sudo dpkg -i chef-server-core_12.0.5-1_amd64.deb
+sudo dpkg -i chef-server-core_12.0.7-1_amd64.deb
 sudo cp ~/configs/chef-server.rb /etc/opscode/
 sudo chef-server-ctl reconfigure
 sudo chef-server-ctl start
@@ -29,26 +29,10 @@ mv spiceweasel.gemspec spiceweasel.gemspec.bak
 ln -s ~/configs/spiceweasel.gemspec .
 gem build spiceweasel.gemspec
 sudo gem install spiceweasel-2.8.0.gem
-cd ~/git
-git clone https://github.com/stackforge/openstack-chef-repo 
-cd openstack-chef-repo
-mv data_bags data_bags.bak
-ln -s ~/configs/data_bags .
-mv infrastructure.yml infrastructure.yml.bak
-ln -s ~/configs/infrastructure.yml .
-mv Berksfile Berksfile.bak
-ln -s ~/configs/Berksfile .
-cp .chef/encrypted_data_bag_secret ~/.chef/encrypted_data_bag_secret
-rm -rf .chef
-cd environments
-ln -s ~/configs/allinone.json .
-cd ../roles
-mv os-compute-single-controller.json os-compute-single-controller.json.bak
-ln -s ~/configs/os-compute-single-controller.json .
-#ln -s ~/configs/os-object-storage.json
 cd ~/
 mkdir -p ~/.berkshelf/
 cp ~/configs/config.json ~/.berkshelf/
+~/bin/clone_openstack-chef-repo.sh
 knife ssl fetch
 knife ssl check
 knife client list

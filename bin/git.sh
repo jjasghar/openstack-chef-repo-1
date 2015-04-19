@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 git init
 git add bin configs README.md
 git config --global user.name "MIYATA Tadaaki"
