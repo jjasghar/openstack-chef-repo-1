@@ -3,12 +3,12 @@ cd ~/
 sudo apt-get -y update
 #sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
-sudo apt-get -y install git ruby ruby-dev build-essential
+sudo apt-get -y install git ruby2.0 ruby-dev build-essential
 sudo gem install bundler rubygems-update rake chef knife-backup 
 sudo update_rubygems
 sudo gem update
 cd ~/deb
-sudo dpkg -i chef-server-core_12.0.7-1_amd64.deb
+sudo dpkg -i chef-server-core_12.0.8-1_amd64.deb
 sudo cp ~/configs/chef-server.rb /etc/opscode/
 sudo chef-server-ctl reconfigure
 sudo chef-server-ctl start
