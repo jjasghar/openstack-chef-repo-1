@@ -1,9 +1,9 @@
 #!/bin/bash -x
 cd ~/
 sudo apt-get -y update
-sudo apt-get -y dist-upgrade
+#sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
-sudo apt-get -y install git ruby ruby-dev build-essential openssh-server
+sudo apt-get -y install git ruby ruby-dev build-essential
 sudo gem install bundler rubygems-update rake chef knife-backup 
 sudo update_rubygems
 sudo gem update
