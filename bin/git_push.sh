@@ -5,5 +5,5 @@ fi
 cd ~
 git add bin configs README.md
 git commit -m \"$1\"
-git pull -u origin master
+git push -u origin master
 
