@@ -13,4 +13,4 @@ sudo vgcreate cinder-volumes /dev/sdb
 sudo apt-get -y install openssh-server openvswitch-switch mysql-client libmysqlclient-dev
 sudo ovs-vsctl add-br br-pppoe
 sudo ovs-vsctl add-port br-pppoe eth2
-sudo reboot
+#sudo reboot
