@@ -3,8 +3,11 @@ cd ~/
 sudo apt-get -y update
 #sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
-sudo apt-get -y install git ruby2.0 ruby-dev build-essential
-sudo gem install bundler rubygems-update rake chef knife-backup 
+#sudo apt-get -y install git ruby2.0 ruby2.0-dev build-essential
+sudo apt-get -y install git
+#sudo ln -sf /usr/bin/ruby2.0 /usr/bin/ruby
+#sudo gem install bundler rubygems-update rake chef knife-backup 
+sudo gem install rubygems-update 
 sudo update_rubygems
 sudo gem update
 cd ~/deb
