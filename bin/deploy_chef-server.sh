@@ -4,12 +4,15 @@ sudo apt-get -y update
 #sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
 #sudo apt-get -y install git ruby2.0 ruby2.0-dev build-essential
-sudo apt-get -y install git
 #sudo ln -sf /usr/bin/ruby2.0 /usr/bin/ruby
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+rvm install ruby-2.1 --default
+. ~/.bash_profile
 #sudo gem install bundler rubygems-update rake chef knife-backup 
-sudo gem install rubygems-update 
-sudo update_rubygems
-sudo gem update
+gem install rubygems-update knife-backup
+update_rubygems
+gem update
 cd ~/deb
 sudo dpkg -i chef-server-core_12.0.8-1_amd64.deb
 sudo cp ~/configs/chef-server.rb /etc/opscode/
@@ -31,7 +34,7 @@ cd spiceweasel/
 mv spiceweasel.gemspec spiceweasel.gemspec.bak
 ln -s ~/configs/spiceweasel.gemspec .
 gem build spiceweasel.gemspec
-sudo gem install spiceweasel-2.8.0.gem
+gem install spiceweasel-2.8.0.gem
 cd ~/
 mkdir -p ~/.berkshelf/
 cp ~/configs/config.json ~/.berkshelf/
