@@ -10,7 +10,7 @@ sudo mkdir -p /etc/neutron/services/neutron-fwaas/
 ~/bin/chef-init_openstack-allinone.sh
 sudo pvcreate /dev/sdb
 sudo vgcreate cinder-volumes /dev/sdb
-sudo apt-get -y install openssh-server openvswitch-switch
+sudo apt-get -y install openssh-server openvswitch-switch libmysqlclient-dev
 sudo ovs-vsctl add-br br-pppoe
 sudo ovs-vsctl add-port br-pppoe eth2
 sudo reboot

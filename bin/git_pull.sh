@@ -1,6 +1,6 @@
 #!/bin/bash -x
 cd ~
-rm -rf .git
+rm -rf .git README.md bin/ configs/
 git init
 git config --global user.name "MIYATA Tadaaki"
 git config --global user.email andes@flg.jp
