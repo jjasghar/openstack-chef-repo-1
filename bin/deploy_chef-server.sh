@@ -16,7 +16,7 @@ sudo cp ~/configs/chef-server.rb /etc/opscode/
 sudo chef-server-ctl reconfigure
 sudo chef-server-ctl start
 sudo private-chef-ctl reconfigure
-sleep 30
+#sleep 30
 cd ~/
 mkdir .chef
 ln -s ~/configs/knife.rb ~/.chef/knife.rb
