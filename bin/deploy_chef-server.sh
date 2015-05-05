@@ -3,13 +3,10 @@ cd ~/
 sudo apt-get -y update
 #sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
-#sudo apt-get -y install git ruby2.0 ruby2.0-dev build-essential
-#sudo ln -sf /usr/bin/ruby2.0 /usr/bin/ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 rvm install ruby-2.1 --default
 . ~/.bash_profile
-#sudo gem install bundler rubygems-update rake chef knife-backup 
 gem install rubygems-update knife-backup
 update_rubygems
 gem update
