@@ -31,7 +31,7 @@ cd spiceweasel/
 mv spiceweasel.gemspec spiceweasel.gemspec.bak
 ln -s ~/configs/spiceweasel.gemspec .
 gem build spiceweasel.gemspec
-gem install spiceweasel-2.8.0.gem
+#gem install spiceweasel-2.8.0.gem
 cd ~/
 mkdir -p ~/.berkshelf/
 cp ~/configs/config.json ~/.berkshelf/
