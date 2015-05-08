@@ -8,6 +8,7 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby
 rvm install ruby-2.1 --default
 . ~/.bash_profile
 gem install rubygems-update knife-backup
+gem install spiceweasel
 update_rubygems
 gem update
 cd ~/deb
