@@ -44,7 +44,8 @@
         },
         "scheduler": {
           "default_filters": ["AvailabilityZoneFilter", "RamFilter", "ComputeFilter", "ComputeCapabilitiesFilter", "ImagePropertiesFilter", "ServerGroupAntiAffinityFilter", "ServerGroupAffinityFilter"]
-        } 
+        },
+        "misc_neutron": ["[serial_console]", "enabled = true", "base_url = ws://127.0.0.1:6083/", "listen = 127.0.0.1", "proxyclient_address = 127.0.0.1"]
       },
       "network": {
         "debug": "True",
