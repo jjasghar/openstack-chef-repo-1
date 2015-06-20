@@ -9,7 +9,7 @@ rvm install ruby-2.1 --default
 gem install rubygems-update knife-backup spiceweasel
 update_rubygems
 gem update
-sudo dpkg -i ~/deb/chef-server-core_12.1.0-1_amd64.deb
+sudo dpkg -i ~/deb/chef-server-core_*_amd64.deb
 sudo cp ~/configs/chef-server.rb /etc/opscode/
 sudo chef-server-ctl reconfigure
 sudo chef-server-ctl start

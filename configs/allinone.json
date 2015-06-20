@@ -45,7 +45,7 @@
         "scheduler": {
           "default_filters": ["AvailabilityZoneFilter", "RamFilter", "ComputeFilter", "ComputeCapabilitiesFilter", "ImagePropertiesFilter", "ServerGroupAntiAffinityFilter", "ServerGroupAffinityFilter"]
         },
-        "misc_neutron": ["[serial_console]", "enabled = true", "base_url = ws://127.0.0.1:6083/", "listen = 127.0.0.1", "proxyclient_address = 127.0.0.1"]
+        "misc_nova": ["[serial_console]", "enabled = true", "base_url = ws://127.0.0.1:6083/", "listen = 127.0.0.1", "proxyclient_address = 127.0.0.1", "", "[rdp]", "enabled = False", "html5_proxy_base_url = http://127.0.0.1:6083/"]
       },
       "network": {
         "debug": "True",
