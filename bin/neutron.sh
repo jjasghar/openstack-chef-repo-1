@@ -14,3 +14,5 @@ neutron router-gateway-set flg-router ext-net
 neutron router-interface-add flg-router flg-subnet
 #
 nova boot --flavor m1.tiny  --image cirros  router --nic net-id=$(neutron net-list | awk '/ pppoe / {print $2}') --nic port-id=$(neutron port-list | awk '/192.168.1.40/ {print $2}')
+nova boot --flavor m1.tiny  --image cirros test --nic net-id=$(neutron net-list | awk '/ flg-net / {print $2}') 
+
