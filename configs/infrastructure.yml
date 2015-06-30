@@ -98,6 +98,7 @@ data bags:
 - secrets:
     items:
       - openstack_identity_bootstrap_token
+      - orchestration_auth_encryption_key
       - neutron_metadata_secret 
       - swift_hash_path_prefix
       - dispersion_auth_key
